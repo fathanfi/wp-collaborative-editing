@@ -24,7 +24,6 @@ export default defineConfig( ( { command } ) => ( {
 		createExternal( {
 			externals: {
 				'@wordpress/data': 'window.wp.data',
-				'@wordpress/dom-ready': 'window.wp.domReady',
 			},
 		} ),
 		react(),
