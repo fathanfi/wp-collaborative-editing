@@ -29,7 +29,7 @@ final class Connection {
 	}
 
 	public function register_provider() {
-		$connection_provider = apply_filters( 'hmce_connection_provider', 'webrtc' );
+		$connection_provider = apply_filters( 'hmce_connection_provider', 'websocket' );
 
 		if ( ! array_key_exists( $connection_provider, self::ALLOWED_PROVIDERS ) ) {
 			$connection_provider = 'websocket';
