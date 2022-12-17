@@ -7,7 +7,7 @@
     "build": "npm run clean && vite build && npm run build:server",
     "serve": "vite preview",
     "clean": "rimraf assets/dist",
-    "server": "wp-env start"
+    "server": "wp-env"
   },
   "devDependencies": {
     "@humanmade/eslint-config": "^1.1.3",

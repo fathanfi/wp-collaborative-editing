@@ -21,10 +21,5 @@
     "psr-4": {
       "Fathanfi\\WpCollaborativeEditing\\": "inc/"
     }
-  },
-  "config": {
-    "allow-plugins": {
-      "dealerdirect/phpcodesniffer-composer-installer": true
-    }
   }
 }

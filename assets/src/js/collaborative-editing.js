@@ -3,12 +3,9 @@
 /**
  * External dependencies
  */
-import { WebrtcProvider } from 'y-webrtc';
-import { WebsocketProvider } from 'y-websocket';
 import * as yjs from 'yjs';
 
 import { BlockEditorBinding } from './libs/block-editor-binding';
-import SSEProvider from './providers/sse-provider';
 
 import '../scss/index.scss';
 
@@ -48,6 +45,8 @@ export default async function initCollaborativeEditing() {
 				postId: postID,
 				postSlug: postSlug,
 			};
+
+			const SSEProvider = await import( './providers/sse-provider' );
 			provider = new SSEProvider( sseURL, yDoc, args );
 
 			break;
@@ -59,6 +58,7 @@ export default async function initCollaborativeEditing() {
 				signalingServerUrls,
 			} = scCollaborativeEditing;
 
+			const { WebrtcProvider } = await import( 'y-webrtc' );
 			provider = new WebrtcProvider(
 				roomName,
 				yDoc,
@@ -77,6 +77,7 @@ export default async function initCollaborativeEditing() {
 				wsServerUrl,
 			} = scCollaborativeEditing;
 
+			const { WebsocketProvider } = await import( 'y-websocket' );
 			provider = new WebsocketProvider(
 				wsServerUrl,
 				roomName,
@@ -96,14 +97,16 @@ export default async function initCollaborativeEditing() {
 		const postID = select( 'core/editor' ).getCurrentPostId();
 		const currentUser = select( 'core' ).getCurrentUser();
 
-		if ( postID && currentUser ) {
+		if ( postID && currentUser && provider ) {
 			new BlockEditorBinding( yDoc, wp.data, awareness );
 			closeListener();
 		}
 	} );
 
-	provider.on( 'status', event => {
-		console.log( 'provider status', event ); // eslint-disable-line no-console
-	} );
+	if ( provider ) {
+		provider.on( 'status', event => {
+			console.log( 'provider status', event ); // eslint-disable-line no-console
+		} );
+	}
 
 }
