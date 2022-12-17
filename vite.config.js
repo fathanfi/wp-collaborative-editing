@@ -17,7 +17,7 @@ export default defineConfig( ( { command } ) => ( {
 		outDir: DIST_DIR,
 		polyfillModulePreload: false,
 		rollupOptions: {
-			input: 'src/js/main.js',
+			input: '/assets/src/js/main.js',
 		},
 	},
 	plugins: [

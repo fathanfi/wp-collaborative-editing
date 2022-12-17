@@ -8,7 +8,7 @@ import * as yjs from 'yjs';
 import { BlockEditorBinding } from './libs/block-editor-binding';
 import SSEProvider from './providers/sse-provider';
 
-import './scss/index.scss';
+import '../scss/index.scss';
 
 /**
  * Init Collaborative Editing
