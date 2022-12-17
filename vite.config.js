@@ -7,11 +7,10 @@ import createExternal from 'vite-plugin-external';
 const SERVER_HOST = 'localhost';
 const SERVER_PORT = 3010;
 
-const PKG_DIR = '/assets';
-const DIST_DIR = 'dist';
+const DIST_DIR = 'assets/dist';
 
 export default defineConfig( ( { command } ) => ( {
-	base: command === 'serve' ? `${ PKG_DIR }/` : `${ PKG_DIR }/${ DIST_DIR }/`,
+	base: command === 'serve' ? '/' : `${ DIST_DIR }/`,
 	build: {
 		manifest: true,
 		outDir: DIST_DIR,

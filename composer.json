@@ -14,7 +14,8 @@
     "php": ">=7.1"
   },
   "require-dev": {
-    "humanmade/coding-standards": "^1.1.1"
+    "humanmade/coding-standards": "^1.1.1",
+    "johnpbloch/wordpress": "dev-master"
   },
   "autoload": {
     "psr-4": {

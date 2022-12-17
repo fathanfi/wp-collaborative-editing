@@ -79,9 +79,8 @@ function enqueue_development_assets( string $entry, array $args ): bool {
 	);
 
 	$src = sprintf(
-		'%s/%s/%s',
+		'%s/%s',
 		untrailingslashit( $args['vite']['server_origin'] ),
-		trim( $args['vite']['base'], '/' ),
 		trim( $entry, '/' )
 	);
 
@@ -164,9 +163,8 @@ function enqueue_vite_client( array $vite_config ): void {
 	}
 
 	$src = sprintf(
-		'%s/%s/@vite/client',
+		'%s/@vite/client',
 		untrailingslashit( $vite_config['server_origin'] ),
-		trim( $vite_config['base'], '/' )
 	);
 
 	wp_enqueue_script( VITE_CLIENT_SCRIPT_HANDLE, $src, [], null );
@@ -217,9 +215,8 @@ function inject_react_refresh_script( array $vite_config, string $tag, string $h
 	}
 
 	$script_path = sprintf(
-		'%s/%s/@react-refresh',
+		'%s/@react-refresh',
 		untrailingslashit( $vite_config['server_origin'] ),
-		trim( $vite_config['base'], '/' )
 	);
 
 	$tag = <<<"EOS"

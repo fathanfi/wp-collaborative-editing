@@ -17,14 +17,20 @@
 
 namespace Fathanfi\WpCollaborativeEditing;
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
+if ( ! file_exists( __DIR__ . '/vendor/autoload.php' ) ) {
+	exit;
+}
+
 // Entry Point.
+require_once __DIR__ . '/vendor/autoload.php';
 require_once __DIR__ . '/inc/namespace.php';
 
 // Vite.
 require_once __DIR__ . '/inc/vite/namespace.php';
-
-register_activation_hook( __FILE__, __NAMESPACE__ . '\\activate' );
-register_deactivation_hook( __FILE__, __NAMESPACE__ . '\\deactivate' );
 
 // Kick it off.
 bootstrap();

@@ -11,21 +11,6 @@ namespace Fathanfi\WpCollaborativeEditing;
  * @return void
  */
 function bootstrap(): void {
-
-}
-
-/**
- * Activate the plugin.
- *
- * @return void
- */
-function activate(): void {
-}
-
-/**
- * Deactivate the plugin.
- *
- * @return void
- */
-function deactivate(): void {
+	( new Admin\Connection() )->register();
+	( new Admin\BlockEditorBinding() )->register();
 }
