@@ -55,6 +55,7 @@ export default async function initCollaborativeEditing() {
 		case 'webrtc': {
 			const {
 				roomName,
+				secret,
 				signalingServerUrls,
 			} = scCollaborativeEditing;
 
@@ -63,7 +64,7 @@ export default async function initCollaborativeEditing() {
 				roomName,
 				yDoc,
 				{
-					password: 'optional-room-password',
+					password: secret,
 					signaling: signalingServerUrls,
 				} );
 

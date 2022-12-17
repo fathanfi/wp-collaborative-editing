@@ -24,11 +24,11 @@ final class WebSocket implements Interfaces\ConnectionProvider {
 	/**
 	 * Constructor
 	 *
-	 * @param string $server_url WebSocket server URL
+	 * @param array $args Initial arguments
 	 */
-	public function __construct( string $server_url = '' ) {
-		if ( ! empty( $server_url ) ) {
-			$this->server_url = $server_url;
+	public function __construct( array $args = [] ) {
+		if ( isset ( $args['server_url'] ) && ! empty( $args['server_url'] ) ) {
+			$this->server_url = $args['server_url'];
 		}
 	}
 

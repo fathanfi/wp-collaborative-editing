@@ -27,11 +27,11 @@ final class WebRTC implements Interfaces\ConnectionProvider {
 	/**
 	 * Constructor
 	 *
-	 * @param array $server_url WebRTC Signaling server URL
+	 * @param array $args Initial arguments
 	 */
-	public function __construct( array $server_url = [] ) {
-		if ( ! empty( $server_url ) && is_array( $server_url ) ) {
-			$this->server_url = $server_url;
+	public function __construct( array $args = [] ) {
+		if ( isset ( $args['server_url'] ) && ! is_array( $args['server_url'] ) ) {
+			$this->server_url = $args['server_url'];
 		}
 	}
 
@@ -59,6 +59,7 @@ final class WebRTC implements Interfaces\ConnectionProvider {
 		return wp_parse_args( $app_data, [
 			'connProvider' => 'webrtc',
 			'roomName' => sha1( $post->guid ),
+			'secret' => wp_hash( $post->guid ),
 			'signalingServerUrls' => $this->server_url,
 		] );
 	}

@@ -8,7 +8,7 @@
 /**
  * Plugin Name: Block Editor Collaborative Editing
  * Description: Allows multiple users to collaborate on the block editor.
- * Version:     0.0.1
+ * Version:     0.1.0
  * Plugin URI:  https://github.com/fathanfi/wp-collaborative-editing
  * Author:      Fathan Fisabilillah
  * Author URI:  https://fathanfi.com
