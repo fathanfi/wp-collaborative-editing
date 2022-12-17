@@ -1,0 +1,60 @@
+.collaborative-editing-add-block-selections__block {
+	position: relative;
+}
+
+.collaborative-editing-add-block-selections__block.is-peer-selected {
+	outline: 2px dashed #000;
+}
+
+.collaborative-editing-add-block-selections__block-peer-names {
+	background-color: #000;
+	color: #fff;
+	font-size: 0.8em;
+	font-weight: 700;
+	padding: 0 5px;
+	position: absolute;
+	top: -24px;
+	right: 0;
+}
+
+.collaborative-editing-add-block-selections--caret {
+	background: #eee;
+	position: relative;
+}
+
+.collaborative-editing-add-block-selections--caret.is-collapsed {
+	background: none;
+}
+
+.collaborative-editing-add-block-selections--caret::before {
+	background: inherit;
+	bottom: 0;
+	box-shadow: 0 0 2px 0 #2e3d48;
+	content: "";
+	font-size: 1em;
+	left: -1px;
+	position: absolute;
+	top: 0;
+	width: 2px;
+}
+
+.collaborative-editing-add-block-selections--caret.is-at-end::before {
+	left: auto;
+	right: -1px;
+}
+
+.collaborative-editing-add-block-selections--caret::after {
+	background-color: inherit;
+	box-shadow: 0 0 2px 0 #2e3d48;
+	content: "";
+	height: 8px;
+	left: -4px;
+	position: absolute;
+	top: -8px;
+	width: 8px;
+}
+
+.collaborative-editing-add-block-selections--caret.is-at-end::after {
+	left: auto;
+	right: -4px;
+}

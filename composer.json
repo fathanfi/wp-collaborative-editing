@@ -1,0 +1,29 @@
+{
+  "name": "fathanfi/wp-collaborative-editing",
+  "description": "Allows multiple users to collaborate on the block editor.",
+  "type": "wordpress-plugin",
+  "license": "MIT",
+  "minimum-stability":"dev",
+  "authors": [
+    {
+      "name": "Fathan Fisabililah",
+      "email": "fathanrbe@gmail.com"
+    }
+  ],
+  "require": {
+    "php": ">=7.1"
+  },
+  "require-dev": {
+    "humanmade/coding-standards": "^1.1.1"
+  },
+  "autoload": {
+    "psr-4": {
+      "Fathanfi\\WpCollaborativeEditing\\": "inc/"
+    }
+  },
+  "config": {
+    "allow-plugins": {
+      "dealerdirect/phpcodesniffer-composer-installer": true
+    }
+  }
+}

@@ -1,0 +1,8 @@
+{
+	"extends": "@humanmade/stylelint-config",
+	"rules": {
+		"max-line-length": 120,
+		"max-nesting-depth": null,
+		"selector-max-compound-selectors": 3
+	}
+}
