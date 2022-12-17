@@ -88,7 +88,6 @@ export class BlockEditorBinding {
 					this.yDocBlocks,
 				);
 
-				console.log( 'newBlocks', newBlocks ); // eslint-disable-line no-console
 				const edits = { blocks: newBlocks };
 				editEntityRecord( 'postType', this.postType, this.postID, edits );
 
@@ -168,15 +167,15 @@ export class BlockEditorBinding {
 
 			added.forEach( id => {
 				// @TODO: handler for this changes.
-				console.log( 'Awareness Change detected: Added: ', awarenessState.get( id ) ); // eslint-disable-line no-console
+				// console.log( 'Awareness Change detected: Added: ', awarenessState.get( id ) ); // eslint-disable-line no-console
 			} );
 			updated.forEach( id => {
 				// @TODO: handler for this changes.
-				console.log( 'Awareness Change detected: Updated: ', awarenessState.get( id ) ); // eslint-disable-line no-console
+				// console.log( 'Awareness Change detected: Updated: ', awarenessState.get( id ) ); // eslint-disable-line no-console
 			} );
 			removed.forEach( id => {
 				// @TODO: handler when another user stop the collaborating.
-				console.log( 'Awareness Change detected: Removed: ', id.toString() ); // eslint-disable-line no-console
+				// console.log( 'Awareness Change detected: Removed: ', id.toString() ); // eslint-disable-line no-console
 			} );
 		};
 
