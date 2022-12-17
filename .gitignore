@@ -2,7 +2,7 @@ node_modules
 dist
 wordpress
 vendor
-release
+./release
 .DS_Store
 *.local
 *.zip
