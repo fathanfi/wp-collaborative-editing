@@ -5,6 +5,8 @@
  */
 import * as yjs from 'yjs';
 
+import { select, subscribe } from '@wordpress/data';
+
 import { BlockEditorBinding } from './libs/block-editor-binding';
 
 import '../scss/index.scss';
@@ -93,13 +95,13 @@ export default async function initCollaborativeEditing() {
 	const { awareness } = provider;
 
 	// Prevent race condition, wait for post and user object initialized.
-	const { select, subscribe } = wp.data;
+	// const { select, subscribe } = wp.data;
 	const closeListener = subscribe( () => {
 		const postID = select( 'core/editor' ).getCurrentPostId();
 		const currentUser = select( 'core' ).getCurrentUser();
 
 		if ( postID && currentUser && provider ) {
-			new BlockEditorBinding( yDoc, wp.data, awareness );
+			new BlockEditorBinding( yDoc, awareness );
 			closeListener();
 		}
 	} );

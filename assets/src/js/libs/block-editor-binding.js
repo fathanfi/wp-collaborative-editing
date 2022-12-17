@@ -1,32 +1,25 @@
+/**
+ * Block Editor Binding Class.
+ */
+
+/**
+ * External dependencies
+ */
 import ColorHash from 'color-hash';
 import debounce from 'lodash.debounce';
 import isEmpty from 'lodash.isempty';
 import * as yjs from 'yjs';
 
-// import getBlockByClientId from '../helpers/get-block-by-client-id';
+import { dispatch, select, subscribe } from '@wordpress/data';
+
+/**
+ * Internal dependencies
+ */
 import setYDocBlocks from '../helpers/set-y-doc-blocks';
 import yDocBlocksToArray from '../helpers/y-doc-blocks-to-array';
 
 import AwarenessObserver from './awareness-observer';
 
-/**
- * @typedef {Object} WPDataRegistry An isolated orchestrator of store registrations.
- * @property {Function} registerGenericStore Given a namespace key and settings
- *                                           object, registers a new generic
- *                                           store.
- * @property {Function} registerStore        Given a namespace key and settings
- *                                           object, registers a new namespace
- *                                           store.
- * @property {Function} subscribe            Given a function callback, invokes
- *                                           the callback on any change to state
- *                                           within any registered store.
- * @property {Function} select               Given a namespace key, returns an
- *                                           object of the  store's registered
- *                                           selectors.
- * @property {Function} dispatch             Given a namespace key, returns an
- *                                           object of the store's registered
- *                                           action dispatchers.
- */
 /** @typedef { import("yjs").Doc } YDoc */
 /** @typedef { import("yjs").YMapEvent } YMapEvent */
 /** @typedef { import("yjs").Transaction } Transaction */
@@ -37,12 +30,9 @@ export class BlockEditorBinding {
 	 * Constructor
 	 *
 	 * @param {YDoc} YDoc YDoc document.
-	 * @param {WPDataRegistry} wpDataRegistry Object of @wordpress/data
 	 * @param {Awareness} awareness Awareness object
 	 */
-	constructor( YDoc, wpDataRegistry, awareness ) {
-		const { dispatch, select, subscribe } = wpDataRegistry;
-
+	constructor( YDoc, awareness ) {
 		const { getCurrentUser } = select( 'core' );
 
 		const {

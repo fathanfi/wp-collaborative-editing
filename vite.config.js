@@ -2,7 +2,7 @@
 
 import react from '@vitejs/plugin-react';
 import { defineConfig } from 'vite';
-import createExternal from 'vite-plugin-external';
+import { viteExternalsPlugin } from 'vite-plugin-externals';
 
 const SERVER_HOST = 'localhost';
 const SERVER_PORT = 3010;
@@ -21,12 +21,10 @@ export default defineConfig( ( { command } ) => ( {
 		},
 	},
 	plugins: [
-		createExternal( {
-			externals: {
-				'@wordpress/data': 'window.wp.data',
-			},
-		} ),
 		react(),
+		viteExternalsPlugin( {
+			'@wordpress/data': 'wp.data',
+		}, { useWindow: false } ),
 	],
 	server: {
 		host: SERVER_HOST,
