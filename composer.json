@@ -2,7 +2,7 @@
   "name": "fathanfi/wp-collaborative-editing",
   "description": "Allows multiple users to collaborate on the block editor.",
   "type": "wordpress-plugin",
-  "license": "MIT",
+  "license": "GPL-2.0+",
   "minimum-stability":"dev",
   "authors": [
     {
@@ -11,7 +11,7 @@
     }
   ],
   "require": {
-    "php": ">=7.1"
+    "php": ">=7.4"
   },
   "require-dev": {
     "humanmade/coding-standards": "^1.1.1",
