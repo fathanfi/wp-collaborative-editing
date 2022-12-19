@@ -15,7 +15,6 @@ use Fathanfi\WpCollaborativeEditing\Providers;
 final class Connection {
 
 	const ALLOWED_PROVIDERS = [
-		'sse' => Providers\SSE::class,
 		'websocket' => Providers\WebSocket::class,
 		'webrtc' => Providers\webrtc::class,
 	];

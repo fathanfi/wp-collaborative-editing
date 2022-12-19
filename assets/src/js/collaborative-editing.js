@@ -17,13 +17,11 @@ import '../scss/index.scss';
 export default async function initCollaborativeEditing() {
 	const {
 		connProvider,
-		post_id: postID,
-		slug: postSlug,
 	} = scCollaborativeEditing;
 
 	const yDoc = new yjs.Doc();
 
-	const allowedConnectionProviders = [ 'sse', 'websocket', 'webrtc' ];
+	const allowedConnectionProviders = [ 'websocket', 'webrtc' ];
 
 	if ( ! allowedConnectionProviders.includes( connProvider ) ) {
 		console.error( 'connection provider not allowed' ); // eslint-disable-line no-console
@@ -32,28 +30,6 @@ export default async function initCollaborativeEditing() {
 
 	let provider = null;
 	switch ( connProvider ) {
-		case 'sse': {
-			const {
-				ajax_url: ajaxUrl,
-				app_nonce: appNonce,
-				message_update_action: msgUpdateAction,
-				sse_url: sseURL,
-			} = scCollaborativeEditing;
-
-			const args = {
-				ajaxAction: msgUpdateAction,
-				ajaxUrl: ajaxUrl,
-				ajaxNonce: appNonce,
-				postId: postID,
-				postSlug: postSlug,
-			};
-
-			const SSEProvider = await import( './providers/sse-provider' );
-			provider = new SSEProvider( sseURL, yDoc, args );
-
-			break;
-		}
-
 		case 'webrtc': {
 			const {
 				roomName,
