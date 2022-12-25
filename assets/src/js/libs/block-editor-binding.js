@@ -15,7 +15,7 @@ import { dispatch, select, subscribe } from '@wordpress/data';
 /**
  * Internal dependencies
  */
-import { STORE_NAME as SelectionStore } from '../components/add-block-selections';
+import { STORE_NAME as SelectionStore } from '../components/block-selections';
 import setYDocBlocks from '../helpers/set-y-doc-blocks';
 import yDocBlocksToArray from '../helpers/y-doc-blocks-to-array';
 

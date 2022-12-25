@@ -22,7 +22,7 @@ import { STORE_NAME as SelectionStore } from './store';
  *
  * @returns {ReactElement} Higher Order Component.
  */
-export default function addBlockSelections() {
+export default function blockSelections() {
 	return createHigherOrderComponent(
 		OriginalComponent => {
 			const withBlockSelections = props => {
@@ -52,13 +52,13 @@ export default function addBlockSelections() {
 
 				return (
 					<div
-						className={ classnames( 'collaborative-editing-add-block-selections__block', 'is-peer-selected' ) }
+						className={ classnames( 'hmce-block-selections__block', 'is-peer-selected' ) }
 						style={ {
 							outlineColor: activePeer.user.color,
 						} }
 					>
 						<div
-							className="collaborative-editing-add-block-selections__block-peer-names"
+							className="hmce-block-selections__block-peer-names"
 							style={ {
 								backgroundColor: activePeer.user.color,
 							} }>{ activePeer.user.name }</div>
@@ -80,6 +80,6 @@ export default function addBlockSelections() {
 
 addFilter(
 	'editor.BlockListBlock',
-	'hmce/add-block-selections',
-	addBlockSelections(),
+	'hmce/block-selections',
+	blockSelections(),
 );
