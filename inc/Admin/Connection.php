@@ -27,6 +27,13 @@ final class Connection {
 		add_action( 'admin_init', [ $this, 'register_provider' ], PHP_INT_MAX );
 	}
 
+	/**
+	 * Register default connection provider.
+	 *
+	 * Run in admin_init hook as late as possible to allow 3rd party to change the default behaviour.
+	 *
+	 * @return void
+	 */
 	public function register_provider() {
 		$connection_provider = apply_filters( 'hmce_connection_provider', 'webrtc' );
 

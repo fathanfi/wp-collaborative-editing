@@ -6,11 +6,18 @@
     <arg name="extensions" value="php"/>
     <config name="show_progress" value="1"/>
 
-    <!-- Use HM Coding Standards -->
+	<!-- Don't restrict file and directory names -->
     <rule ref="vendor/humanmade/coding-standards">
-        <!-- Silence sniffs about namespace.php filenames. -->
-        <exclude name="HM.Files.FunctionFileName.WrongFile"/>
+		<exclude name="HM.Files.ClassFileName.MismatchedName" />
+		<exclude name="HM.Files.NamespaceDirectoryName" />
+		<exclude name="WordPress.Files.FileName.NotHyphenatedLowercase" />
     </rule>
+
+	<rule ref="WordPress.Files.FileName">
+		<properties>
+			<property name="strict_class_file_names" value="false" />
+		</properties>
+	</rule>
 
     <!-- Use PHPDoc rules -->
     <rul ref="WordPress-Docs"/>
