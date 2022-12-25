@@ -5,6 +5,10 @@
     "build": "npm run clean && vite build",
     "clean": "rimraf assets/dist",
     "dev": "npm run clean && vite",
+    "lint:css": "stylelint '**/*.{css,scss}'",
+    "lint:js": "eslint . --ext .js,.jsx",
+    "lint:php": "composer lint",
+    "lint": "npm run lint:css && npm run lint:js && npm run lint:php",
     "release": "composer install --no-dev --ignore-platform-reqs && npm run build && ./bin/release",
     "serve": "vite preview",
     "server": "wp-env"

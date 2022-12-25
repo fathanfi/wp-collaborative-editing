@@ -21,5 +21,9 @@
     "psr-4": {
       "Fathanfi\\WpCollaborativeEditing\\": "inc/"
     }
+  },
+  "scripts": {
+    "format": "./vendor/bin/phpcbf -p --standard=phpcs.ruleset.xml ./inc",
+    "lint": "./vendor/bin/phpcs -p --standard=phpcs.ruleset.xml ./inc"
   }
 }
