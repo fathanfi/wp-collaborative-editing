@@ -23,7 +23,9 @@ export default defineConfig( ( { command } ) => ( {
 	plugins: [
 		react(),
 		viteExternalsPlugin( {
+			'@wordpress/compose': 'wp.compose',
 			'@wordpress/data': 'wp.data',
+			'@wordpress/hooks': 'wp.hooks',
 		}, { useWindow: false } ),
 	],
 	server: {

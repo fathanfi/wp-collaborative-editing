@@ -15,10 +15,9 @@ import { dispatch, select, subscribe } from '@wordpress/data';
 /**
  * Internal dependencies
  */
+import { STORE_NAME as SelectionStore } from '../components/add-block-selections';
 import setYDocBlocks from '../helpers/set-y-doc-blocks';
 import yDocBlocksToArray from '../helpers/y-doc-blocks-to-array';
-
-import AwarenessObserver from './awareness-observer';
 
 /** @typedef { import("yjs").Doc } YDoc */
 /** @typedef { import("yjs").YMapEvent } YMapEvent */
@@ -48,10 +47,7 @@ export class BlockEditorBinding {
 
 		const { editEntityRecord } = dispatch( 'core' );
 
-		// Observe awareness.
-		AwarenessObserver();
-
-		const { setState: setAddBlockSelectionsState } = dispatch( 'collaborative-editing/add-block-selections' );
+		const { setState: setAddBlockSelectionsState } = dispatch( SelectionStore );
 		// const { removeBlock, updateBlock } = dispatch( 'core/block-editor' );
 
 		this.postID = getCurrentPostId();

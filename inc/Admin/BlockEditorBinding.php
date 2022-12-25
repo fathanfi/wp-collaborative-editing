@@ -43,7 +43,7 @@ final class BlockEditorBinding {
 			'handle' => self::APP_SLUG,
 			'in_footer' => true,
 			'public_url' => "{$plugin_dir_url}/assets/dist",
-			'dependencies' => [ 'wp-data' ],
+			'dependencies' => [ 'wp-compose', 'wp-data', 'wp-hooks' ],
 			'vite' => [
 				'base' => "",
 				'server_origin' => 'http://localhost:3010',
