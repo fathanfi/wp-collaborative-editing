@@ -8,7 +8,6 @@ namespace Fathanfi\WpCollaborativeEditing\Admin;
 use Fathanfi\WpCollaborativeEditing\Vite;
 use WP_Block_Editor_Context;
 
-
 /**
  * Class BlockEditor
  *
@@ -45,7 +44,7 @@ final class BlockEditorBinding {
 			'public_url' => "{$plugin_dir_url}/assets/dist",
 			'dependencies' => [ 'wp-compose', 'wp-data', 'wp-hooks' ],
 			'vite' => [
-				'base' => "",
+				'base' => '',
 				'server_origin' => 'http://localhost:3010',
 				'with_react_refresh' => true,
 			],

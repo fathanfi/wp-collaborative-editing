@@ -34,7 +34,7 @@ final class WebSocket implements Interfaces\ConnectionProvider {
 	 * @param array $args Initial arguments
 	 */
 	public function __construct( array $args = [] ) {
-		if ( isset ( $args['server_url'] ) && ! empty( $args['server_url'] ) ) {
+		if ( isset( $args['server_url'] ) && ! empty( $args['server_url'] ) ) {
 			$this->server_url = $args['server_url'];
 		}
 	}
