@@ -36,16 +36,23 @@ final class BlockEditorBinding {
 		}
 
 		$plugin_dir_url = untrailingslashit( plugin_dir_url( dirname( __DIR__ ) ) );
-		$manifest_path = sprintf( '%s/assets/dist/manifest.json', dirname( __DIR__, 2 ) );
+		$manifest_path  = sprintf( '%s/assets/dist/manifest.json', dirname( __DIR__, 2 ) );
 
 		Vite\enqueue( $manifest_path, 'assets/src/js/main.js', [
-			'handle' => self::APP_SLUG,
-			'in_footer' => true,
-			'public_url' => "{$plugin_dir_url}/assets/dist",
-			'dependencies' => [ 'wp-compose', 'wp-data', 'wp-hooks' ],
-			'vite' => [
-				'base' => '',
-				'server_origin' => 'http://localhost:3010',
+			'handle'       => self::APP_SLUG,
+			'in_footer'    => true,
+			'public_url'   => "{$plugin_dir_url}/assets/dist",
+			'dependencies' => [
+				'wp-compose',
+				'wp-data',
+				'wp-edit-post',
+				'wp-editor',
+				'wp-hooks',
+				'wp-plugins',
+			],
+			'vite'         => [
+				'base'               => '',
+				'server_origin'      => 'http://localhost:3010',
 				'with_react_refresh' => true,
 			],
 		] );
@@ -67,8 +74,8 @@ final class BlockEditorBinding {
 				return $editor_settings;
 			}
 
-			$lock_details = [
-				'isLocked' => false,
+			$lock_details                = [
+				'isLocked'       => false,
 				'activePostLock' => '',
 			];
 			$editor_settings['postLock'] = $lock_details;
@@ -87,7 +94,7 @@ final class BlockEditorBinding {
 
 		$app_data = [
 			'post_id' => absint( $post->ID ),
-			'slug' => $post->post_name,
+			'slug'    => $post->post_name,
 		];
 
 		return apply_filters( 'hmce_app_data', $app_data );

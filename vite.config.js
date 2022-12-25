@@ -25,7 +25,10 @@ export default defineConfig( ( { command } ) => ( {
 		viteExternalsPlugin( {
 			'@wordpress/compose': 'wp.compose',
 			'@wordpress/data': 'wp.data',
+			'@wordpress/edit-post': 'wp.editPost',
+			'@wordpress/editor': 'wp.editor',
 			'@wordpress/hooks': 'wp.hooks',
+			'@wordpress/plugins': 'wp.plugins',
 		}, { useWindow: false } ),
 	],
 	server: {
