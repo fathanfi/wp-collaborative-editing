@@ -25,7 +25,7 @@
 		background: none;
 	}
 
-	&::before{
+	&::before {
 		background: inherit;
 		bottom: 0;
 		box-shadow: 0 0 2px 0 #2e3d48;
@@ -37,7 +37,7 @@
 		width: 2px;
 	}
 
-	&::after{
+	&::after {
 		background-color: inherit;
 		box-shadow: 0 0 2px 0 #2e3d48;
 		content: "";
